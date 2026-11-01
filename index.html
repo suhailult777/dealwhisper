@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealWhisper: live call copilot for property sales teams</title>
+<meta name="description" content="DealWhisper listens to your agents' calls and, the moment a buyer objects on price, handover or payment plan, shows a reply grounded in your own project fact sheet.">
+<link rel="canonical" href="https://suhailult777.github.io/dealwhisper/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DealWhisper">
+<meta property="og:title" content="DealWhisper: your best closer, whispering in every rep's ear">
+<meta property="og:description" content="A live call copilot for Dubai property sales teams. When the buyer objects, your agent sees what to say, the one number to mention and the next step.">
+<meta property="og:url" content="https://suhailult777.github.io/dealwhisper/">
+<meta property="og:image" content="https://suhailult777.github.io/dealwhisper/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:video" content="https://suhailult777.github.io/dealwhisper/assets/demo.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DealWhisper: your best closer, whispering in every rep's ear">
+<meta name="twitter:description" content="A live call copilot for Dubai property sales teams.">
+<meta name="twitter:image" content="https://suhailult777.github.io/dealwhisper/assets/og.jpg">
+<meta name="theme-color" content="#0a1020">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0a1020; --deep:#0e1629; --line:#1d2840; --ink:#eaeff7; --mist:#8e99b3;
+  --blue:#7c9cff; --teal:#5eead4; --amber:#f2c46d;
+  --grad:linear-gradient(100deg,var(--blue),var(--teal));
+  --sans:"Bricolage Grotesque",system-ui,sans-serif; --voice:"Newsreader",Georgia,serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{width:min(var(--wrap),100% - 48px);margin-inline:auto}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(10,16,32,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:20px;letter-spacing:-.01em;text-decoration:none}
+.brand img{width:30px;height:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--sans);padding:15px 22px;border-radius:999px;text-decoration:none;transition:transform .15s ease,background .2s ease,border-color .2s ease}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--grad);color:var(--night)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{border:1px solid #33415f;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal)}
+.btn svg{width:18px;height:18px;flex:none}
+.nav .btn{padding:11px 18px;font-size:15px}
+
+/* hero */
+.hero{padding:88px 0 40px;position:relative}
+.hero:before{content:"";position:absolute;inset:-200px 0 auto;height:720px;background:radial-gradient(60% 50% at 75% 30%,rgba(94,234,212,.10),transparent 70%),radial-gradient(50% 50% at 20% 10%,rgba(124,156,255,.12),transparent 70%);pointer-events:none;z-index:-1}
+.hero h1{font-size:clamp(44px,7.4vw,104px);line-height:.98;letter-spacing:-.035em;font-weight:800;max-width:12.5em;text-wrap:balance;font-variation-settings:"opsz" 96}
+.hero h1 .w{display:inline-block}
+.hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;margin-top:36px}
+.lede{font-size:21px;line-height:1.5;color:#c4cbdb;max-width:34em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.wave{display:flex;gap:6px;align-items:center;height:44px;margin-top:40px}
+.wave i{display:block;width:5px;border-radius:3px;background:var(--grad);height:30%;opacity:.9}
+.stage{margin-top:28px;border-radius:22px;padding:1px;background:linear-gradient(140deg,rgba(124,156,255,.6),rgba(94,234,212,.15) 40%,rgba(29,40,64,.8));box-shadow:0 40px 120px -40px rgba(94,234,212,.25),0 30px 80px -30px rgba(0,0,0,.8)}
+.stage video{width:100%;aspect-ratio:16/9;border-radius:21px;background:#000}
+.stage-note{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:14.5px;color:var(--mist)}
+
+/* sections */
+section{padding:120px 0 0}
+h2{text-wrap:balance;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.028em;font-weight:800;max-width:15em}
+.sub{color:var(--mist);font-size:19px;max-width:36em;margin-top:18px}
+
+/* steps: a real sequence, so numbered */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;counter-reset:s;position:relative}
+.steps:before{content:"";position:absolute;top:22px;left:22px;right:22px;height:1px;background:linear-gradient(90deg,var(--blue),var(--teal),transparent)}
+.steps li{counter-increment:s;padding-right:40px;position:relative}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--night);border:1px solid #3a4a6e;font-weight:600;font-size:17px;color:var(--teal);position:relative;margin-bottom:26px}
+.steps h3{font-size:24px;letter-spacing:-.015em;font-weight:600;line-height:1.2;margin-bottom:10px}
+.steps p{color:var(--mist);max-width:22em}
+
+/* objection ledger: the one bold element */
+.ledger{margin-top:60px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start}
+.heard{font-family:var(--voice);font-style:italic;font-size:clamp(24px,2.6vw,33px);line-height:1.25;color:var(--amber);letter-spacing:-.005em}
+.heard small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--mist);margin-top:12px;letter-spacing:0}
+.whisper{position:relative;padding-left:26px}
+.whisper:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:2px;background:var(--grad)}
+.whisper p{font-size:20px;line-height:1.5;color:var(--ink)}
+.whisper dl{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px;font-size:15px}
+.whisper dt{color:var(--mist);display:inline}
+.whisper dd{display:inline;margin-left:6px;color:#c4cbdb}
+.ledger-foot{margin-top:18px;color:var(--mist);font-size:15px;max-width:52em}
+
+/* audience */
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:56px}
+.aud h3{font-size:26px;font-weight:600;letter-spacing:-.015em;line-height:1.2;padding-top:20px;border-top:2px solid;border-image:var(--grad) 1;margin-bottom:12px}
+.aud p{color:var(--mist)}
+
+/* honest note */
+.note{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;background:var(--deep);border:1px solid var(--line);border-radius:28px;padding:56px}
+.note ul{list-style:none;display:grid;gap:22px}
+.note li{padding-left:30px;position:relative;color:#c4cbdb}
+.note li b{color:var(--ink);font-weight:600}
+.note li:before{content:"";position:absolute;left:0;top:11px;width:14px;height:2px;background:var(--teal)}
+
+/* cta */
+.cta{padding:140px 0 120px;text-align:center}
+.cta h2{margin-inline:auto;font-size:clamp(40px,6vw,80px);max-width:12em}
+.cta .sub{margin-inline:auto}
+.cta .ctas{justify-content:center;margin-top:40px}
+.cta .fine{margin-top:22px;color:var(--mist);font-size:15px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mist);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+
+/* the single orchestrated moment: hero load */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .w{opacity:0;transform:translateY(.25em);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 55ms)}
+  .wave i{animation:talk 1.3s ease-in-out infinite;animation-delay:calc(var(--i) * -97ms)}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes talk{0%,100%{height:22%}50%{height:var(--h)}}
+}
+@media (prefers-reduced-motion:reduce){.wave i{height:var(--h)}}
+
+@media (max-width:900px){
+  body{font-size:17px}
+  .hero{padding-top:56px}
+  .hero-row{grid-template-columns:1fr;gap:28px}
+  .ctas{justify-content:flex-start}
+  section{padding-top:88px}
+  .steps{grid-template-columns:1fr;gap:36px}
+  .steps:before{top:22px;bottom:22px;left:22px;right:auto;width:1px;height:auto;background:linear-gradient(180deg,var(--blue),var(--teal),transparent)}
+  .steps li{padding:0 0 0 70px}
+  .steps li:before{position:absolute;left:0;top:-6px;margin:0}
+  .row{grid-template-columns:1fr;gap:18px;padding:28px 0}
+  .aud{grid-template-columns:1fr;gap:32px}
+  .note{grid-template-columns:1fr;gap:28px;padding:32px 24px;border-radius:22px}
+  .cta{padding:110px 0 90px}
+  .stage{border-radius:14px}.stage video{border-radius:13px}
+}
+@media (max-width:480px){
+  .nav .btn span{display:none}
+  .btn{width:100%;justify-content:center}
+  .nav .btn{width:auto}
+  .lede{font-size:19px}
+}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="DealWhisper home"><img src="assets/logo.svg" alt=""><span>DealWhisper</span></a>
+    <a class="btn btn-primary" href="#pilot"><span>Book a free 7 day pilot</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1 aria-label="Your best closer, whispering in every rep's ear.">
+        <span class="w" style="--i:0">Your</span> <span class="w" style="--i:1">best</span> <span class="w" style="--i:2">closer,</span> <span class="w" style="--i:3">whispering</span> <span class="w" style="--i:4">in</span> <span class="w" style="--i:5">every</span> <span class="w" style="--i:6">rep's</span> <span class="w" style="--i:7">ear.</span>
+      </h1>
+      <div class="hero-row">
+        <p class="lede">DealWhisper listens to your agents' calls. The moment a buyer pushes back on price, handover or the payment plan, the agent sees what to say, the one number to mention and the next step, taken from your own project fact sheet.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="mailto:suhailult123@gmail.com?subject=DealWhisper%20pilot">Book a free 7 day pilot</a>
+          <a class="btn btn-ghost" href="https://wa.me/918639213814?text=Hi%20Suhail%2C%20I%20would%20like%20a%20DealWhisper%20pilot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></svg>Message on WhatsApp</a>
+        </div>
+      </div>
+      <div class="wave" aria-hidden="true">
+        <i style="--i:0;--h:55%"></i><i style="--i:1;--h:90%"></i><i style="--i:2;--h:65%"></i><i style="--i:3;--h:100%"></i><i style="--i:4;--h:45%"></i><i style="--i:5;--h:80%"></i><i style="--i:6;--h:60%"></i><i style="--i:7;--h:95%"></i><i style="--i:8;--h:40%"></i><i style="--i:9;--h:70%"></i><i style="--i:10;--h:50%"></i><i style="--i:11;--h:85%"></i>
+      </div>
+      <figure class="stage">
+        <video src="assets/demo.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="89 second demo: DealWhisper suggesting replies on a mock Dubai off plan call"></video>
+      </figure>
+      <div class="stage-note"><span>A mock Dubai off plan call with a fictional project. The replies are real model output, not a script.</span><span>89 seconds, no sound needed</span></div>
+    </div>
+  </div>
+
+  <section id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">Set up once, then it works on every call</h2>
+      <ol class="steps">
+        <li><h3>Send us your fact sheet</h3><p>Prices, payment plans, handover dates, service charges, and how your best closer answers the usual objections. A PDF or a spreadsheet is fine.</p></li>
+        <li><h3>Your agent takes the call</h3><p>DealWhisper follows the conversation as it happens. Nothing changes in how the agent dials or talks to the buyer.</p></li>
+        <li><h3>A reply appears when the buyer objects</h3><p>What to say, one fact to mention and the next step to ask for, on screen within seconds and in your team's own words.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="objections" aria-labelledby="obj-h">
+    <div class="wrap">
+      <h2 id="obj-h">The six things buyers say on every call</h2>
+      <p class="sub">These are the exact suggestions from the demo, for a fictional two bedroom unit at AED 2.45 million.</p>
+      <div class="ledger">
+        <div class="row">
+          <p class="heard">"Honestly, AED 2.45 million feels too high."<small>Price</small></p>
+          <div class="whisper"><p>I understand. Our price of AED 1,960 per sq ft is about 9% below the area average. How does that compare to your budget?</p><dl><div><dt>Mention</dt><dd>9% below the area average</dd></div><div><dt>Next</dt><dd>Discuss budget, find a suitable unit</dd></div></dl></div>
+        </div>
+        <div class="row">
+          <p class="heard">"When exactly is the handover? I don't want to wait forever."<small>Handover date</small></p>
+          <div class="whisper"><p>Handover is in Q4 2027, just 12 months from now. Construction is 62% complete, escrow protected.</p><dl><div><dt>Mention</dt><dd>Q4 2027, 62% built</dd></div><div><dt>Next</dt><dd>Lock in a follow up call in 2 weeks</dd></div></dl></div>
+        </div>
+        <div class="row">
+          <p class="heard">"I heard service charges can be crazy in this area."<small>Service charges</small></p>
+          <div class="whisper"><p>I understand your concern. Rent covers the service charges many times over, about AED 20,000 a year for this unit.</p><dl><div><dt>Mention</dt><dd>About 13% of expected rent</dd></div><div><dt>Next</dt><dd>Show the rental comparison</dd></div></dl></div>
+        </div>
+        <div class="row">
+          <p class="heard">"How does the payment plan work? I can't pay everything upfront."<small>Payment plan</small></p>
+          <div class="whisper"><p>Our plan is 10% down, 50% during construction in 8 installments, and 40% on handover. No interest. How does that look?</p><dl><div><dt>Mention</dt><dd>0% interest</dd></div><div><dt>Next</dt><dd>Walk through the instalment dates</dd></div></dl></div>
+        </div>
+        <div class="row">
+          <p class="heard">"Another developer nearby is offering around 1,850 per square foot."<small>Rival developer</small></p>
+          <div class="whisper"><p>That's a good point. Our handover is Q4 2027, 18 months earlier. That's about AED 225,000 more in rent for you.</p><dl><div><dt>Mention</dt><dd>18 months earlier handover</dd></div><div><dt>Next</dt><dd>Offer to lock in this price</dd></div></dl></div>
+        </div>
+        <div class="row">
+          <p class="heard">"Let me think about it and I'll get back to you next week."<small>Stalling</small></p>
+          <div class="whisper"><p>Of course. Would you like to hold the unit and book a follow up call next week? That way we can review all the details together.</p><dl><div><dt>Mention</dt><dd>Developer pays 2% DLD this month</dd></div><div><dt>Next</dt><dd>Book a follow up call</dd></div></dl></div>
+        </div>
+      </div>
+      <p class="ledger-foot">Every number above came from the fact sheet loaded for the demo. With your projects loaded, the replies use your prices, your dates and your offers.</p>
+    </div>
+  </section>
+
+  <section id="who" aria-labelledby="who-h">
+    <div class="wrap">
+      <h2 id="who-h">Built for teams that live on the phone</h2>
+      <div class="aud">
+        <div><h3>Dubai brokerages</h3><p>Off plan teams of 10 to 150 agents, where new hires hear the same objections all day and every lost call is a lost commission.</p></div>
+        <div><h3>Developer sales teams</h3><p>In house teams juggling several launches whose prices and payment plans change often. Every rep quotes the current numbers.</p></div>
+        <div><h3>Call centres</h3><p>Lead qualification desks working portal enquiries at volume. Consistent answers and more booked viewings and follow ups.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="honest" aria-labelledby="honest-h">
+    <div class="wrap">
+      <div class="note">
+        <div>
+          <h2 id="honest-h">What it is today, plainly</h2>
+          <p class="sub">We would rather you judge it on a real pilot than on a sales page.</p>
+        </div>
+        <ul>
+          <li><b>Grounded on your own fact sheet.</b> Suggestions are built from the material you give us, so the agent is not handed invented prices or dates. If something is not in the sheet, it stays out of the reply.</li>
+          <li><b>It is a pilot.</b> DealWhisper is early. We set it up by hand for each team and improve it with your feedback during the trial.</li>
+          <li><b>The agent stays in charge.</b> It suggests, it never speaks to the buyer. Your agent decides what to say.</li>
+          <li><b>Speed depends on where it runs.</b> The demo ran on an ordinary laptop processor, so suggestions took 7 to 17 seconds and the video shows that wait at 2x. Pilots run on faster hardware.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="pilot" aria-labelledby="cta-h">
+    <div class="wrap">
+      <h2 id="cta-h">Try it on one of your live projects</h2>
+      <p class="sub">A free 7 day pilot for 2 or 3 of your agents on one project. Judge it on one thing: do they handle objections better?</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:suhailult123@gmail.com?subject=DealWhisper%20pilot">Book a free 7 day pilot</a>
+        <a class="btn btn-ghost" href="https://wa.me/918639213814?text=Hi%20Suhail%2C%20I%20would%20like%20a%20DealWhisper%20pilot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></svg>Message on WhatsApp</a>
+      </div>
+      <p class="fine">Or write to suhailult123@gmail.com. We reply within a day.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.svg" alt=""><span>DealWhisper</span></a>
+    <span>Live call copilot for property sales teams in the UAE and the Gulf.</span>
+  </div>
+</footer>
+<script>
+const n=document.getElementById('nav');addEventListener('scroll',()=>n.classList.toggle('scrolled',scrollY>8),{passive:true});
+</script>
+</body>
+</html>
